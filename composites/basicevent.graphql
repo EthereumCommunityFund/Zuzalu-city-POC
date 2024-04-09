@@ -1,0 +1,14 @@
+type BasicProfile @loadModel(id: "$PROFILE_ID") {
+    id: ID!
+}
+
+type Event @createModel(accountRelation: LIST, description: "A simple event") {
+  author: DID! @documentAccount 
+  title: String! @string(minLength: 3, maxLength: 100)
+  description: String @string(minLength: 3, maxLength: 1000)
+  startTime: DateTime!
+  endTime: DateTime!
+  profileId: StreamID! @documentReference(model: "BasicProfile")
+  profile: BasicProfile! @relationDocument(property: "profileId")
+}
+

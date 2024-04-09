@@ -1,0 +1,17 @@
+type BasicProfile @loadModel(id: "$PROFILE_ID") {
+    id: ID!
+}
+
+type Event @loadModel(id: "$EVENT_ID") {
+    id: ID!
+}
+
+type Space @createModel(accountRelation: LIST, description: "A simple space which contains profiles and events") {
+  author: DID! @documentAccount 
+  name: String! @string(minLength: 3, maxLength: 100)
+  allowedProfiles: [StreamID!]! @list(maxLength:100)
+  events: [StreamID!]! @list(maxLength:100)
+  admin: StreamID! @documentReference(model: "BasicProfile")
+}
+
+

@@ -1,0 +1,38 @@
+{
+  "anchor": {
+    "auth-method": "did"
+  },
+  "http-api": {
+    "cors-allowed-origins": [
+      ".*"
+    ],
+    "admin-dids": []
+  },
+  "ipfs": {
+    "mode": "bundled",
+    "disable-peer-data-sync": false
+  },
+  "logger": {
+    "log-level": 2,
+    "log-to-files": false
+  },
+  "metrics": {
+    "metrics-exporter-enabled": false
+  },
+  "network": {
+    "name": "testnet-clay"
+  },
+  "node": {
+    "privateSeedUrl": "inplace:ed25519#7ca3941bd99249d33cf61422ad232a6ad5d3095caf47530b9797b4d110aa34b0"
+  },
+  "state-store": {
+    "mode": "fs",
+    "local-directory": "/home/reno/.ceramic/statestore/"
+  },
+  "indexing": {
+    "db": "sqlite:///home/reno/.ceramic/indexing.sqlite",
+    "allow-queries-before-historical-sync": true,
+    "disable-composedb": false,
+    "enable-historical-sync": false
+  }
+}
